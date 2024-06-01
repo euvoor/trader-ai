@@ -1,3 +1,4 @@
+import datetime
 import uuid
 from sqlalchemy.dialects.postgresql import JSONB, UUID
 from sqlalchemy import create_engine, Column, Integer, String, Float, DateTime, Text, null
@@ -19,6 +20,19 @@ class HistoricalDataCache(Base):
     start = Column(String, index=True, nullable=False)
     end = Column(String, index=True, nullable=False)
     json_data = Column(JSONB, nullable=False)
+
+class Trade(Base):
+    __tablename__ = "trades"
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4, nullable=False)
+    created_at = Column(DateTime, default=datetime.datetime.utcnow)
+    symbol = Column(String, nullable=False)
+    side = Column(String, nullable=False)
+    price = Column(Float, nullable=False)
+    qty = Column(Float, nullable=False)
+    total = Column(Float, nullable=False)
+
+    def __repr__(self):
+        return f"<Trade(symbol={self.symbol}, side={self.side}, price={self.price}, quantity={self.qty}, total={self.total})>"
 
 def create_tables():
     Base.metadata.create_all(bind=engine)

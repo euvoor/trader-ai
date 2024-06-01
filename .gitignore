@@ -27,3 +27,5 @@ myenv/
 *.swp
 .DS_Store
 .vimrc
+*.pkl
+*.pth
