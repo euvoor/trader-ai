@@ -1,0 +1,29 @@
+# Ignore __pycache__ directories at any level
+**/__pycache__/
+
+# Byte-compiled / optimized / DLL files
+*.py[cod]
+*$py.class
+
+# Environment variables file
+.env
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# VS Code settings
+.vscode/
+
+# Virtual environment
+venv/
+myenv/
+
+# SQLite database files
+*.sqlite3
+*.db
+
+# Ignore any other unnecessary files
+*.log
+*.swp
+.DS_Store
+.vimrc
